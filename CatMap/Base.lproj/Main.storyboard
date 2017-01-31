@@ -121,6 +121,9 @@
                             <constraint firstItem="34f-to-Ndn" firstAttribute="leading" secondItem="xUi-oH-j7o" secondAttribute="leading" id="xpQ-zU-xpv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="detailMap" destination="34f-to-Ndn" id="Eh9-Ct-url"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30u-fE-cY1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

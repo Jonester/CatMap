@@ -49,6 +49,7 @@
             self.model.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
             self.model = [[PhotoModel alloc]initWithTitle:[photoElements valueForKey:@"title"]
                                                     image:self.model.image];
+            self.model.photoID = [photoElements valueForKey:@"id"];
             [self.photosArray addObject:self.model];
         }
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
@@ -91,9 +92,9 @@
         CatsCollectionViewCell *customCell = (CatsCollectionViewCell *)sender;
         NSIndexPath *indexPath = [self.collectionView indexPathForCell:customCell];
         
-        PhotoModel *model = self.photosArray[indexPath.row];
+        self.model = self.photosArray[indexPath.row];
         DetailViewController *dvc = [segue destinationViewController];
-        [dvc displayDetails:model];
+        [dvc displayDetails:self.model];
     }
 }
 

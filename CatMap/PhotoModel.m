@@ -14,9 +14,8 @@
 {
     self = [super init];
     if (self) {
-        _imageTitle = title;
+        _title= title;
         _image = image;
-        
     }
     return self;
 }

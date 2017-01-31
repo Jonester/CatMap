@@ -12,6 +12,7 @@
 @interface DetailViewController ()
 
 @property (strong, nonatomic) PhotoModel *photoModel;
+@property (weak, nonatomic) IBOutlet MKMapView *detailMap;
 
 @end
 
@@ -19,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = self.photoModel.imageTitle;
+    self.title = self.photoModel.title;
     
     NSURL *url = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=2cefae6b9ce4007e1dae82b25d665dcf&photo_id=%@&format=json&nojsoncallback=1", self.photoModel.photoID]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
@@ -31,7 +32,9 @@
             return;
         }
         NSError *jsonError = nil;
-        NSDictionary *dict1 = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        NSDictionary *dict1 = [NSJSONSerialization JSONObjectWithData:data
+                                                              options:0
+                                                                error:&jsonError];
         if (jsonError) {
             NSLog(@"JSON Error: %@", jsonError.localizedDescription);
             return;
@@ -40,24 +43,18 @@
         NSDictionary *dict3 = [dict2 valueForKey:@"location"];
         NSString *latitude = [dict3 valueForKey:@"latitude"];
         NSString *longitude = [dict3 valueForKey:@"longitude"];
-        
-        
-//        for (NSDictionary *photoElements in photoJSONArray) {
-//            NSString *urlString = [NSString stringWithFormat:@"https://farm%ld.staticflickr.com/%@/%@_%@.jpg", [[photoElements valueForKey:@"farm"] integerValue], [photoElements valueForKey:@"server"], [photoElements valueForKey:@"id"], [photoElements valueForKey:@"secret"]];
-//            
-//            self.model.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
-//            self.model = [[PhotoModel alloc]initWithTitle:[photoElements valueForKey:@"title"]
-//                                                    image:self.model.image];
-//            [self.photosArray addObject:self.model];
-//        }
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            [self.collectionView reloadData];
-//        }];
-//    }];
-//    [dataTask resume];
-//}
 
-
+        self.photoModel.coordinate = CLLocationCoordinate2DMake([latitude intValue], [longitude intValue]);
+        MKCoordinateSpan span = MKCoordinateSpanMake(.5f, .5f);
+        self.detailMap.region = MKCoordinateRegionMake(self.photoModel.coordinate, span);
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [self.detailMap addAnnotation:self.photoModel];
+            }];
+    }];
+    [dataTask resume];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
