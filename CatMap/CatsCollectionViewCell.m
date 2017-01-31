@@ -13,7 +13,7 @@
 
 -(void)setPhotoModel:(PhotoModel *)photoModel {
     self.cellImage.image = photoModel.image;
-    self.cellLabel.text = photoModel.title;
+    self.cellLabel.text = photoModel.imageTitle;
 }
 
 @end

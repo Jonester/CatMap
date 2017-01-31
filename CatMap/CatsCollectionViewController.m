@@ -9,6 +9,7 @@
 #import "CatsCollectionViewController.h"
 #import "CatsCollectionViewCell.h"
 #import "PhotoModel.h"
+#import "DetailViewController.h"
 
 @interface CatsCollectionViewController ()
 
@@ -24,7 +25,7 @@
     
     self.photosArray = [NSMutableArray new];
     
-    NSURL *url = [[NSURL alloc]initWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=1&api_key=d03d341e56d31ac876ad9eec528309d4&tags=cat"];
+    NSURL *url = [[NSURL alloc]initWithString:@"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d03d341e56d31ac876ad9eec528309d4&tags=cat&has_geo=1&extras=url_m&format=json&nojsoncallback=1"];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
@@ -54,7 +55,8 @@
                 [self.collectionView reloadData];
             }];
         }];
-        [dataTask resume];}
+        [dataTask resume];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -82,6 +84,17 @@
     [cell setPhotoModel:self.model];
     
     return cell;
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"DetailViewController"]) {
+        CatsCollectionViewCell *customCell = (CatsCollectionViewCell *)sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:customCell];
+        
+        PhotoModel *model = self.photosArray[indexPath.row];
+        DetailViewController *dvc = [segue destinationViewController];
+        [dvc displayDetails:model];
+    }
 }
 
 #pragma mark <UICollectionViewDelegate>

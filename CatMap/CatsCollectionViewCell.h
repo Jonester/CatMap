@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *cellImage;
 @property (weak, nonatomic) IBOutlet UILabel *cellLabel;
 @property (strong, nonatomic) PhotoModel *photoModel;
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *blurEffect;
 
 @end

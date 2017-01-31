@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        _title = title;
+        _imageTitle = title;
         _image = image;
         
     }
