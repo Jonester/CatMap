@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CatsCollectionViewController.h
 //  CatMap
 //
 //  Created by Chris Jones on 2017-01-31.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface CatsCollectionViewController : UICollectionViewController <UICollectionViewDelegate>
 
 @end
-

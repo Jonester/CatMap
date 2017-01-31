@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		3CB633A41E40E4C800F84193 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB633A31E40E4C800F84193 /* main.m */; };
 		3CB633A71E40E4C800F84193 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB633A61E40E4C800F84193 /* AppDelegate.m */; };
-		3CB633AA1E40E4C800F84193 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB633A91E40E4C800F84193 /* ViewController.m */; };
 		3CB633AD1E40E4C800F84193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB633AB1E40E4C800F84193 /* Main.storyboard */; };
 		3CB633AF1E40E4C800F84193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3CB633AE1E40E4C800F84193 /* Assets.xcassets */; };
 		3CB633B21E40E4C800F84193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3CB633B01E40E4C800F84193 /* LaunchScreen.storyboard */; };
+		3CB633BB1E40E58900F84193 /* CatsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB633BA1E40E58900F84193 /* CatsCollectionViewCell.m */; };
+		3CB633BE1E40E5A500F84193 /* CatsCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB633BD1E40E5A500F84193 /* CatsCollectionViewController.m */; };
+		3CB633C11E40E6F500F84193 /* PhotoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB633C01E40E6F500F84193 /* PhotoModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +22,16 @@
 		3CB633A31E40E4C800F84193 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3CB633A51E40E4C800F84193 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3CB633A61E40E4C800F84193 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3CB633A81E40E4C800F84193 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3CB633A91E40E4C800F84193 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3CB633AC1E40E4C800F84193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3CB633AE1E40E4C800F84193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3CB633B11E40E4C800F84193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3CB633B31E40E4C800F84193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3CB633B91E40E58900F84193 /* CatsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatsCollectionViewCell.h; sourceTree = "<group>"; };
+		3CB633BA1E40E58900F84193 /* CatsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatsCollectionViewCell.m; sourceTree = "<group>"; };
+		3CB633BC1E40E5A500F84193 /* CatsCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CatsCollectionViewController.h; sourceTree = "<group>"; };
+		3CB633BD1E40E5A500F84193 /* CatsCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CatsCollectionViewController.m; sourceTree = "<group>"; };
+		3CB633BF1E40E6F500F84193 /* PhotoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoModel.h; sourceTree = "<group>"; };
+		3CB633C01E40E6F500F84193 /* PhotoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,14 +64,13 @@
 		3CB633A11E40E4C800F84193 /* CatMap */ = {
 			isa = PBXGroup;
 			children = (
-				3CB633A51E40E4C800F84193 /* AppDelegate.h */,
-				3CB633A61E40E4C800F84193 /* AppDelegate.m */,
-				3CB633A81E40E4C800F84193 /* ViewController.h */,
-				3CB633A91E40E4C800F84193 /* ViewController.m */,
 				3CB633AB1E40E4C800F84193 /* Main.storyboard */,
-				3CB633AE1E40E4C800F84193 /* Assets.xcassets */,
-				3CB633B01E40E4C800F84193 /* LaunchScreen.storyboard */,
-				3CB633B31E40E4C800F84193 /* Info.plist */,
+				3CB633BF1E40E6F500F84193 /* PhotoModel.h */,
+				3CB633C01E40E6F500F84193 /* PhotoModel.m */,
+				3CB633B91E40E58900F84193 /* CatsCollectionViewCell.h */,
+				3CB633BA1E40E58900F84193 /* CatsCollectionViewCell.m */,
+				3CB633BC1E40E5A500F84193 /* CatsCollectionViewController.h */,
+				3CB633BD1E40E5A500F84193 /* CatsCollectionViewController.m */,
 				3CB633A21E40E4C800F84193 /* Supporting Files */,
 			);
 			path = CatMap;
@@ -74,6 +79,11 @@
 		3CB633A21E40E4C800F84193 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3CB633A51E40E4C800F84193 /* AppDelegate.h */,
+				3CB633A61E40E4C800F84193 /* AppDelegate.m */,
+				3CB633AE1E40E4C800F84193 /* Assets.xcassets */,
+				3CB633B01E40E4C800F84193 /* LaunchScreen.storyboard */,
+				3CB633B31E40E4C800F84193 /* Info.plist */,
 				3CB633A31E40E4C800F84193 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -150,9 +160,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3CB633AA1E40E4C800F84193 /* ViewController.m in Sources */,
 				3CB633A71E40E4C800F84193 /* AppDelegate.m in Sources */,
+				3CB633C11E40E6F500F84193 /* PhotoModel.m in Sources */,
 				3CB633A41E40E4C800F84193 /* main.m in Sources */,
+				3CB633BB1E40E58900F84193 /* CatsCollectionViewCell.m in Sources */,
+				3CB633BE1E40E5A500F84193 /* CatsCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
