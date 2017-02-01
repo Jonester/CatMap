@@ -10,6 +10,7 @@
 #import "CatsCollectionViewCell.h"
 #import "PhotoModel.h"
 #import "DetailViewController.h"
+#import "SearchViewController.h"
 
 @interface CatsCollectionViewController ()
 
@@ -96,9 +97,59 @@
         DetailViewController *dvc = [segue destinationViewController];
         [dvc displayDetails:self.model];
     }
+    else if ([[segue identifier] isEqualToString:@"SearchViewController"]) {
+        UINavigationController *nav = segue.destinationViewController;
+        SearchViewController *svc = nav.viewControllers[0];
+        svc.userInputDelegate = self;
+        
+    }
 }
 
-#pragma mark <UICollectionViewDelegate>
+#pragma mark <UserInputDelegate>
+
+-(void)searchTags:(NSString *)parsedInput {
+    
+    [self.photosArray removeAllObjects];
+    [self.collectionView reloadData];
+    
+    NSString *userInput = [NSString stringWithFormat: @"https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=d03d341e56d31ac876ad9eec528309d4&tags=%@&has_geo=1&extras=url_m&format=json&nojsoncallback=1",parsedInput];
+    
+    NSURL *searchURL = [[NSURL alloc]initWithString:userInput];
+
+    NSURLRequest *request = [[NSURLRequest alloc]initWithURL:searchURL];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(error) {
+            NSLog(@"Error: %@", error.localizedDescription);
+            return;
+        }
+        NSError *jsonError = nil;
+        NSDictionary *mainJSONDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&jsonError];
+        if (jsonError) {
+            NSLog(@"JSON Error: %@", jsonError.localizedDescription);
+            return;
+        }
+        NSDictionary *interiorDict = [mainJSONDict valueForKey:@"photos"];
+        NSArray *photoJSONArray = [interiorDict valueForKey:@"photo"];
+        
+        for (NSDictionary *photoElements in photoJSONArray) {
+            NSString *urlString = [NSString stringWithFormat:@"https://farm%ld.staticflickr.com/%@/%@_%@.jpg", [[photoElements valueForKey:@"farm"] integerValue], [photoElements valueForKey:@"server"], [photoElements valueForKey:@"id"], [photoElements valueForKey:@"secret"]];
+            
+            self.model.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:urlString]]];
+            self.model = [[PhotoModel alloc]initWithTitle:[photoElements valueForKey:@"title"]
+                                                    image:self.model.image];
+            self.model.photoID = [photoElements valueForKey:@"id"];
+            [self.photosArray addObject:self.model];
+        }
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self.collectionView reloadData];
+        }];
+    }];
+    [dataTask resume];
+
+    
+}
 
 
 @end

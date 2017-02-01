@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchViewController.h"
 
-@interface CatsCollectionViewController : UICollectionViewController <UICollectionViewDelegate>
+@interface CatsCollectionViewController : UICollectionViewController <UICollectionViewDelegate,  UserInputDelegate>
 
 @end

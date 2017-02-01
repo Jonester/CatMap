@@ -12,7 +12,6 @@
 @interface DetailViewController ()
 
 @property (strong, nonatomic) PhotoModel *photoModel;
-@property (weak, nonatomic) IBOutlet MKMapView *detailMap;
 
 @end
 
@@ -27,6 +26,7 @@
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
         if(error) {
             NSLog(@"Error: %@", error.localizedDescription);
             return;
@@ -53,7 +53,6 @@
             }];
     }];
     [dataTask resume];
-    
     
 }
 

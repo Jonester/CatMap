@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@import MapKit;
 @class PhotoModel;
 
 @interface DetailViewController : UIViewController
+
+@property (weak, nonatomic) IBOutlet MKMapView *detailMap;
 
 -(void)displayDetails: (PhotoModel *)model;
 
