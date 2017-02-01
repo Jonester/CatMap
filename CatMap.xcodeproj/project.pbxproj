@@ -18,6 +18,7 @@
 		3CB633C41E410FF800F84193 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB633C31E410FF800F84193 /* DetailViewController.m */; };
 		3CB633C71E411B1E00F84193 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3CB633C61E411B1E00F84193 /* MapKit.framework */; };
 		3CB633CA1E41466E00F84193 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB633C91E41466E00F84193 /* SearchViewController.m */; };
+		3CB633CD1E41762400F84193 /* PhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CB633CC1E41762400F84193 /* PhotoManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,8 @@
 		3CB633C61E411B1E00F84193 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		3CB633C81E41466E00F84193 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		3CB633C91E41466E00F84193 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		3CB633CB1E41762400F84193 /* PhotoManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PhotoManager.h; path = ../PhotoManager.h; sourceTree = "<group>"; };
+		3CB633CC1E41762400F84193 /* PhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PhotoManager.m; path = ../PhotoManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				3CB633AB1E40E4C800F84193 /* Main.storyboard */,
 				3CB633BF1E40E6F500F84193 /* PhotoModel.h */,
 				3CB633C01E40E6F500F84193 /* PhotoModel.m */,
+				3CB633CB1E41762400F84193 /* PhotoManager.h */,
+				3CB633CC1E41762400F84193 /* PhotoManager.m */,
 				3CB633C21E410FF800F84193 /* DetailViewController.h */,
 				3CB633C31E410FF800F84193 /* DetailViewController.m */,
 				3CB633B91E40E58900F84193 /* CatsCollectionViewCell.h */,
@@ -188,6 +193,7 @@
 				3CB633BB1E40E58900F84193 /* CatsCollectionViewCell.m in Sources */,
 				3CB633BE1E40E5A500F84193 /* CatsCollectionViewController.m in Sources */,
 				3CB633C41E410FF800F84193 /* DetailViewController.m in Sources */,
+				3CB633CD1E41762400F84193 /* PhotoManager.m in Sources */,
 				3CB633CA1E41466E00F84193 /* SearchViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +349,7 @@
 				3CB633B81E40E4C800F84193 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

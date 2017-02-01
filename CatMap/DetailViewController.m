@@ -21,7 +21,7 @@
     [super viewDidLoad];
     self.title = self.photoModel.title;
     
-    NSURL *url = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=2cefae6b9ce4007e1dae82b25d665dcf&photo_id=%@&format=json&nojsoncallback=1", self.photoModel.photoID]];
+    NSURL *url = [[NSURL alloc]initWithString:[NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.photos.geo.getLocation&api_key=d03d341e56d31ac876ad9eec528309d4&photo_id=%@&format=json&nojsoncallback=1", self.photoModel.photoID]];
     NSURLRequest *request = [[NSURLRequest alloc]initWithURL:url];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
